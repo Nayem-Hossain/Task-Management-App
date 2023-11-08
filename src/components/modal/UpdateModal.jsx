@@ -25,7 +25,7 @@ const UpdateModal = ({ singleTask, isupdateList, setIsupdateList }) => {
         try {
             // console.log("updated data", data);
             const response = await axios.put(
-                `http://localhost:5000/update-task/${_id}`,
+                `http://localhost:7000/update-task/${_id}`,
                 data
             );
             console.log("update-task response api : ", response);

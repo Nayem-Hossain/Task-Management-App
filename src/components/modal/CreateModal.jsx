@@ -7,7 +7,7 @@ const CreateModal = () => {
     const handleOnSubmitCreate = async (data) => {
         try {
             console.log(data);
-            const response = await axios.post('http://localhost:5000/add-task', data);
+            const response = await axios.post('http://localhost:7000/add-task', data);
             console.log("create response : ", response);
             reset();
         } catch (error) {
@@ -22,12 +22,12 @@ const CreateModal = () => {
                 <form onSubmit={handleSubmit((data) => handleOnSubmitCreate(data))} className='pt-4'>
                     <div className='text-start mt-2'>
                         <label htmlFor="taskName" className='block'>Task Name</label>
-                        <input {...register("taskName", { required: true })} id='taskName'  name="taskName" type="text" placeholder="Type here..." className="input input-bordered input-accent w-full" />
+                        <input {...register("taskName", { required: true })} id='taskName' name="taskName" type="text" placeholder="Type here..." className="input input-bordered input-accent w-full" />
                         {errors.taskName && <span className="text-red-700">Task name field is required</span>}
                     </div>
                     <div className='text-start mt-2'>
                         <label htmlFor="description" className='block'>Job Description</label>
-                        <input {...register('description', { required: true })} id='description'  name="description" type="text" placeholder="Type here..." className="input input-bordered input-accent w-full" />
+                        <input {...register('description', { required: true })} id='description' name="description" type="text" placeholder="Type here..." className="input input-bordered input-accent w-full" />
                         {errors.description && <span className="text-red-700">Task description field is required</span>}
                     </div>
                     <button type='submit' className="btn btn-outline btn-success mt-4 float-right">Create</button>

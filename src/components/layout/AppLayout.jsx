@@ -13,7 +13,7 @@ const AppLayout = () => {
         // Using an Immediately Invoked Async Function:
         (async () => {
             try {
-                const response = await axios.get('http://localhost:5000/get-task');
+                const response = await axios.get('http://localhost:7000/get-task');
                 console.log("get-task api response : ", response.data);
                 setTaskList(response.data);
                 console.log("setTaskList : ", taskList);
@@ -25,7 +25,7 @@ const AppLayout = () => {
 
         /* Use Axios to make a GET request */
 
-        // axios.get("http://localhost:5000/get-task")
+        // axios.get("http://localhost:7000/get-task")
         //     .then((response) => {
         //         setTaskList(response.data);
         //     })

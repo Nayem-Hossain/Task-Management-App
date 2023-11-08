@@ -11,14 +11,14 @@ const TaskTable = ({ taskList, setTaskList, isupdateList, setIsupdateList }) => 
         console.log(isChecked);
         let data = isChecked ? { status: "complete" } : { status: "incomplete" }
         console.log("status data : ", data);
-        const response = await axios.put(`http://localhost:5000/update-task-status/${id}`, data)
+        const response = await axios.put(`http://localhost:7000/update-task-status/${id}`, data)
         console.log("update-task-status response api : ", data);
         setIsupdateList(!isupdateList);
     }
 
     const handleUpdateTask = async (id) => {
         console.log("uadate function called")
-        const response = await axios.get(`http://localhost:5000/get-singletask/${id}`);
+        const response = await axios.get(`http://localhost:7000/get-singletask/${id}`);
         console.log("get single task api from handleUpdateTask : ", response.data);
         setSingleTask(response.data);
         document.getElementById('update_modal').showModal();
@@ -26,7 +26,7 @@ const TaskTable = ({ taskList, setTaskList, isupdateList, setIsupdateList }) => 
 
     const handleDeleteTask = async (id) => {
         console.log("delete function called")
-        const response = await axios.delete(`http://localhost:5000/delete-task/${id}`);
+        const response = await axios.delete(`http://localhost:7000/delete-task/${id}`);
         if (response.data.deletedCount > 0) {
             const isDone = confirm("deleted Successfully!");
             if (isDone) {
